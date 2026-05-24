@@ -1,0 +1,15 @@
+name = "clariveda-payments-gateway"
+main = "src/index.ts"
+compatibility_date = "2026-05-24"
+
+# Optional D1 binding for storing leads/payments.
+# Create DB and fill these values before deploy.
+[[d1_databases]]
+binding = "DB"
+database_name = "clariveda_db"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+
+[vars]
+ALLOWED_ORIGIN = "https://clariveda.in"
+NOTIFY_TO_EMAIL = "Info.clariveda@gmail.com"
+FROM_EMAIL = "noreply@clariveda.in"
