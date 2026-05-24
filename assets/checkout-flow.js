@@ -99,6 +99,11 @@
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) {
+      if (res.status === 404 || res.status === 405) {
+        throw new Error(
+          "Payment API is not live yet. Please connect Cloudflare Worker route for /api/* to enable checkout."
+        );
+      }
       throw new Error(data?.error || `Request failed: ${res.status}`);
     }
     return data;
