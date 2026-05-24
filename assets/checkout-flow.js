@@ -1,6 +1,6 @@
 (function () {
   const API_BASE =
-    window.CLARIVEDA_API_BASE || "https://clariveda-payments-gateway.sarwatemihika.workers.dev";
+    window.CLARIVEDA_API_BASE || "https://clariveda-payments-gateway.sarwatemihika.workers.dev/api";
   const CURRENCY = "INR";
 
   const state = {
