@@ -7,7 +7,7 @@ compatibility_date = "2026-05-24"
 [[d1_databases]]
 binding = "DB"
 database_name = "clariveda_db"
-database_id = "REPLACE_WITH_D1_DATABASE_ID"
+database_id = "8a77da51-ef90-41c7-877f-66a515150060"
 
 [vars]
 ALLOWED_ORIGIN = "https://clariveda.in"
