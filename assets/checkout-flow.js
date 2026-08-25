@@ -214,27 +214,27 @@
   }
 
   function attachPaymentButtons(modal) {
-    const buttons = Array.from(document.querySelectorAll("button"));
-    buttons
-      .filter((btn) => {
-        const label = text(btn).toLowerCase();
-        return label === "buy now" || label === "register now";
-      })
-      .forEach((btn) => {
-        btn.addEventListener("click", function () {
-          const card = btn.closest("article") || btn.parentElement;
-          const plan = parsePlanFromCard(card);
-          state.selectedPlan = plan;
-          state.baseAmount = plan.amount;
-          state.discountAmount = 0;
-          state.finalAmount = plan.amount;
-          state.couponCode = "";
-          document.getElementById("cv-coupon").value = "";
-          refreshPriceUI();
-          setMessage("");
-          modal.classList.add("open");
-        });
-      });
+    document.addEventListener("click", function (e) {
+      const btn = e.target.closest("button");
+      if (!btn) return;
+      
+      const label = text(btn).toLowerCase();
+      if (label === "buy now" || label === "register now") {
+        e.preventDefault();
+        const card = btn.closest("article") || btn.parentElement;
+        const plan = parsePlanFromCard(card);
+        state.selectedPlan = plan;
+        state.baseAmount = plan.amount;
+        state.discountAmount = 0;
+        state.finalAmount = plan.amount;
+        state.couponCode = "";
+        const couponInput = document.getElementById("cv-coupon");
+        if (couponInput) couponInput.value = "";
+        refreshPriceUI();
+        setMessage("");
+        modal.classList.add("open");
+      }
+    });
   }
 
   function closeModal() {
