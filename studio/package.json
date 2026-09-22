@@ -1,0 +1,23 @@
+{
+  "name": "professional-website-cms",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "sanity dev",
+    "build": "sanity build",
+    "start": "sanity start",
+    "deploy": "sanity deploy"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sanity": "^3.0.0",
+    "styled-components": "^6.3.8"
+  },
+  "devDependencies": {
+    "@sanity/cli": "^3.0.0"
+  }
+}
