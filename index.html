@@ -49,7 +49,24 @@ Over the years, I have also contributed as a PGT Mathematics at Gaurs Internatio
         const replacements = [];
         
         liveData.forEach(newItem => {
+            
+            if (newItem._type === 'siteSettings') {
+                if (newItem.experienceBadge) replacements.push({ oldText: '30+ Years Experience', newText: newItem.experienceBadge });
+                if (newItem.mentoriaBadge) replacements.push({ oldText: 'Mentoria Career Counselor', newText: newItem.mentoriaBadge });
+                if (newItem.leadershipBadge) replacements.push({ oldText: '30+ Years Of Academic Leadership', newText: newItem.leadershipBadge });
+                if (newItem.coreValuesHeading) replacements.push({ oldText: 'Success. Clarity. Vedanta.', newText: newItem.coreValuesHeading });
+                if (newItem.coreValuesDesc) replacements.push({ oldText: 'The brand stands at the intersection of rigorous academic standards and the profound conceptual depth required for true intellectual mastery.', newText: newItem.coreValuesDesc });
+                if (newItem.coreValuesPoint1) replacements.push({ oldText: 'Rooted in Success, Clarity, and Vedanta', newText: newItem.coreValuesPoint1 });
+                if (newItem.coreValuesPoint2) replacements.push({ oldText: 'Integrating expert Mentoria career counseling with academic mentorship', newText: newItem.coreValuesPoint2 });
+                if (newItem.coreValuesPoint3) replacements.push({ oldText: 'Based in Greater Noida and serving excellence nationwide', newText: newItem.coreValuesPoint3 });
+                
+                // uppercase variants just in case the DOM uses exact uppercase text node
+                if (newItem.experienceBadge) replacements.push({ oldText: '30+ YEARS EXPERIENCE', newText: newItem.experienceBadge });
+                if (newItem.mentoriaBadge) replacements.push({ oldText: 'MENTORIA CAREER COUNSELOR', newText: newItem.mentoriaBadge });
+                if (newItem.leadershipBadge) replacements.push({ oldText: '30+ YEARS OF ACADEMIC LEADERSHIP', newText: newItem.leadershipBadge });
+            }
             const oldItem = oldDataMap[newItem._id];
+    
             if (oldItem) {
                 // Compare fields that are typically displayed
                 const fieldsToCheck = ['title', 'description', 'priceLabel', 'name', 'quote', 'role', 'body'];
